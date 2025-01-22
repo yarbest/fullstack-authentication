@@ -1,7 +1,18 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import sassDts from 'vite-plugin-sass-dts'
 
-// https://vite.dev/config/
+import path from 'path'
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), sassDts()],
+  resolve: {
+    alias: {
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@features': path.resolve(__dirname, 'src/features'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
+      '@routes': path.resolve(__dirname, 'src/routes'),
+      'src': path.resolve(__dirname, './src'),
+    },
+  },
 })
