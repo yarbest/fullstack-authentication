@@ -4,7 +4,7 @@ import sassDts from 'vite-plugin-sass-dts'
 
 import path from 'path'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react(), sassDts()],
   resolve: {
     alias: {
@@ -15,4 +15,5 @@ export default defineConfig({
       'src': path.resolve(__dirname, './src'),
     },
   },
-})
+  base: mode === 'production' ? '/fullstack-authentication' : '/',
+}))
