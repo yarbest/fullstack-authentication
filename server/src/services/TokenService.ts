@@ -28,7 +28,7 @@ class TokenService {
       return jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET ?? '') as UserDTO
     }
     catch {
-      ApiError.UnauthenticatedError()
+      throw ApiError.UnauthenticatedError()
     }
   }
 
