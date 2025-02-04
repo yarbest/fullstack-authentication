@@ -1,6 +1,6 @@
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import { Provider } from 'react-redux'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import Router from './routes/Router'
 import { store } from './store'
@@ -17,13 +17,13 @@ function fallbackRender({ error }: FallbackProps) {
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <ErrorBoundary fallbackRender={fallbackRender}>
           <Router />
         </ErrorBoundary>
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
